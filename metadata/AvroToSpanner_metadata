@@ -1,0 +1,36 @@
+{
+  "name": "AvroToSpanner",
+  "description": "Pipeline to insert records to Spanner table from Avro file on GCS.",
+  "parameters": [
+  {
+    "name": "input",
+    "label": "Input Avro file GCS prefix",
+    "help_text": "Path and filename prefix for writing input Avro files. ex: gs://MyBucket/xxx",
+    "regexes": ["^gs:\/\/[^\n\r]+$"]
+  },
+  {
+    "name": "projectId",
+    "label": "Project ID (Google Cloud Project ID)",
+    "help_text": "Project ID that Cloud Spanner you will insert is belong to."
+  },
+  {
+    "name": "instanceId",
+    "label": "Instance ID",
+    "help_text": "Cloud Spanner instance ID that you will insert."
+  },
+  {
+    "name": "databaseId",
+    "label": "Database ID",
+    "help_text": "Cloud Spanner database ID that you will insert."
+  },
+  {
+    "name": "table",
+    "label": "Table",
+    "help_text": "Table name to insert record."
+  },
+  {
+    "name": "mutationOp",
+    "label": "Spanner insert policy. `INSERT` or `UPDATE` or `REPLACE` or `INSERT_OR_UPDATE`",
+    "help_text": "Detail: https://googleapis.github.io/google-cloud-java/google-cloud-clients/apidocs/com/google/cloud/spanner/Mutation.Op.html"
+  }]
+}

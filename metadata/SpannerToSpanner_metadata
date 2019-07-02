@@ -1,0 +1,62 @@
+{
+  "name": "SpannerToSpanner",
+  "description": "Pipeline to insert records to Spanner table from Spanner query results.",
+  "parameters": [
+  {
+    "name": "inputProjectId",
+    "label": "Input Spanner Project ID (Google Cloud Project ID)",
+    "help_text": "Project ID that Cloud Spanner you will query is belong to."
+  },
+  {
+    "name": "inputInstanceId",
+    "label": "Input Spanner Instance ID",
+    "help_text": "Cloud Spanner instance ID that you will query."
+  },
+  {
+    "name": "inputDatabaseId",
+    "label": "Input Database ID",
+    "help_text": "Cloud Spanner database ID that you will query."
+  },
+  {
+    "name": "query",
+    "label": "SQL Query text",
+    "help_text": "SQL Query text to read records from Cloud Spanner."
+  },
+  {
+    "name": "outputProjectId",
+    "label": "Output Spanner Project ID (Google Cloud Project ID)",
+    "help_text": "Project ID Cloud Spanner to store is belong to."
+  },
+  {
+    "name": "outputInstanceId",
+    "label": "Output Spanner Instance ID",
+    "help_text": "Cloud Spanner instance ID to store."
+  },
+  {
+    "name": "outputDatabaseId",
+    "label": "Output Database ID",
+    "help_text": "Cloud Spanner database ID to store."
+  },
+  {
+    "name": "table",
+    "label": "Output Spanner Table Name",
+    "help_text": "Cloud Spanner target table name to store."
+  },
+  {
+    "name": "outputError",
+    "label": "GCS path to output error record as avro files.",
+    "help_text": "Path and filename prefix for writing output avro files. ex: gs://MyBucket/xxx",
+    "regexes": ["^gs:\/\/[^\n\r]+$"]
+  },
+  {
+    "name": "mutationOp",
+    "label": "Spanner insert policy. `INSERT` or `UPDATE` or `REPLACE` or `INSERT_OR_UPDATE`",
+    "help_text": "Detail: https://googleapis.github.io/google-cloud-java/google-cloud-clients/apidocs/com/google/cloud/spanner/Mutation.Op.html"
+  },
+  {
+    "name": "timestampBound",
+    "label": "TimestampBound",
+    "help_text": "TimestampBound for query. default is strong.",
+    "is_optional": true
+  }]
+}

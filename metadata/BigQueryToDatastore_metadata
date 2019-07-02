@@ -1,0 +1,32 @@
+{
+  "name": "BigQueryToDatastore",
+  "description": "Pipeline to insert records to Datastore from BigQuery query results.",
+  "parameters": [
+  {
+    "name": "query",
+    "label": "SQL Query for BigQuery",
+    "help_text": "SQL Query text to read records from BigQuery."
+  },
+  {
+    "name": "projectId",
+    "label": "GCP Project ID to write Datastore",
+    "help_text": "Project ID to write Datastore (Google Cloud Project ID)"
+  },
+  {
+    "name": "kind",
+    "label": "Kind Name",
+    "help_text": "Cloud Datastore target kind name to store."
+  },
+  {
+    "name": "keyField",
+    "label": "Unique field name in query results from BigQuery.",
+    "help_text": "This field value will be used as datastore entity key name."
+  },
+  {
+    "name": "excludeFromIndexFields",
+    "label": "Field names to exclude from index.",
+    "help_text": "This fields will be excluded from Datastore index.",
+    "is_optional": true
+  }
+  ]
+}

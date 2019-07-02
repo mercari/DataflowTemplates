@@ -1,0 +1,30 @@
+{
+  "name": "BigQueryToTFRecord",
+  "description": "Pipeline to store BigQuery records as TFRecord.",
+  "parameters": [
+  {
+    "name": "query",
+    "label": "SQL Query for BigQuery",
+    "help_text": "SQL Query text to read records from BigQuery."
+  },
+  {
+    "name": "output",
+    "label": "Output GCS file prefix",
+    "help_text": "Path and filename prefix for writing output avro files. ex: gs://MyBucket/xxx",
+    "regexes": ["^gs:\/\/[^\n\r]+$"]
+  },
+  {
+    "name": "splitField",
+    "label": "Field in query results to separate records.",
+    "help_text": "If set this parameter, tfrecords will be written separated by the field value.",
+    "is_optional": true
+  },
+  {
+    "name": "outputNotify",
+    "label": "OutputNotify",
+    "help_text": "GCS path to put notification file that contains output file paths.",
+    "regexes": ["^gs:\/\/[^\n\r]+$"],
+    "is_optional": true
+  }
+  ]
+}

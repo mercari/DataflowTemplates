@@ -1,0 +1,74 @@
+{
+  "name": "SpannerToText",
+  "description": "Pipeline to dump Spanner query results as text files on GCS.",
+  "parameters": [
+  {
+    "name": "type",
+    "label": "Format type (json or csv)",
+    "help_text": "Output format. set json or csv."
+  },
+  {
+    "name": "projectId",
+    "label": "Project ID (Google Cloud Project ID)",
+    "help_text": "Project ID that Cloud Spanner you will query is belong to."
+  },
+  {
+    "name": "instanceId",
+    "label": "Instance ID",
+    "help_text": "Cloud Spanner instance ID that you will query."
+  },
+  {
+    "name": "databaseId",
+    "label": "Database ID",
+    "help_text": "Cloud Spanner database ID that you will query."
+  },
+  {
+    "name": "query",
+    "label": "SQL Query text",
+    "help_text": "SQL Query text to read records from Cloud Spanner."
+  },
+  {
+    "name": "output",
+    "label": "Output GCS file prefix",
+    "help_text": "Path and filename prefix for writing output text files. ex: gs://MyBucket/xxx",
+    "regexes": ["^gs:\/\/[^\n\r]+$"]
+  },
+  {
+    "name": "timestampBound",
+    "label": "TimestampBound",
+    "help_text": "TimestampBound for query",
+    "is_optional": true
+  },
+  {
+    "name": "outputNotify",
+    "label": "OutputNotify",
+    "help_text": "GCS path to put notification file that contains output file paths.",
+    "regexes": ["^gs:\/\/[^\n\r]+$"],
+    "is_optional": true
+  },
+  {
+    "name": "outputEmpty",
+    "label": "OutputEmpty",
+    "help_text": "If set true, output empty file even empty result",
+    "is_optional": true
+  },
+  {
+    "name": "splitField",
+    "label": "SplitField",
+    "help_text": "Field name to split output destination by the value",
+    "is_optional": true
+  },
+  {
+    "name": "withoutSharding",
+    "label": "WithoutSharding",
+    "help_text": "If set true, avro file will be aggregated to one file",
+    "is_optional": true
+  },
+  {
+    "name": "header",
+    "label": "HeaderText",
+    "help_text": "Set csv header text if required.",
+    "is_optional": true
+  }
+]
+}

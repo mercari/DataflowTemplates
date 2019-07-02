@@ -1,0 +1,33 @@
+{
+  "name": "AvroToDatastore",
+  "description": "Pipeline to insert records to Cloud Datastore from Avro Files.",
+  "parameters": [
+  {
+    "name": "input",
+    "label": "Input Avro file GCS prefix",
+    "help_text": "Path and filename prefix for writing input Avro files. ex: gs://MyBucket/xxx",
+    "regexes": ["^gs:\/\/[^\n\r]+$"]
+  },
+  {
+    "name": "projectId",
+    "label": "GCP Project ID to write Datastore",
+    "help_text": "Project ID to write Datastore (Google Cloud Project ID)"
+  },
+  {
+    "name": "kind",
+    "label": "Kind Name",
+    "help_text": "Cloud Datastore target kind name to store."
+  },
+  {
+    "name": "keyField",
+    "label": "Unique field name in query results from BigQuery.",
+    "help_text": "This field value will be used as datastore entity key name."
+  },
+  {
+    "name": "excludeFromIndexFields",
+    "label": "Field names to exclude from index.",
+    "help_text": "This fields will be excluded from Datastore index.",
+    "is_optional": true
+  }
+  ]
+}

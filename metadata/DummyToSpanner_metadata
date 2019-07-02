@@ -1,0 +1,37 @@
+{
+  "name": "DummyToSpanner",
+  "description": "Pipeline to generate dummy record according to pointed Spanner table schema and insert to the table.",
+  "parameters": [
+  {
+    "name": "projectId",
+    "label": "Spanner Project ID (Google Cloud Project ID)",
+    "help_text": "Project ID Cloud Spanner to store is belong to."
+  },
+  {
+    "name": "instanceId",
+    "label": "Spanner Instance ID",
+    "help_text": "Cloud Spanner instance ID to store."
+  },
+  {
+    "name": "databaseId",
+    "label": "Spanner Database ID",
+    "help_text": "Cloud Spanner database ID to store."
+  },
+  {
+    "name": "tables",
+    "label": "Spanner Table Names and num of dummy record.",
+    "help_text": "format: `tableName1:10000000,tableName2:500000,...`."
+  },
+  {
+    "name": "config",
+    "label": "Config yaml file. GCS path or yaml text itself.",
+    "help_text": "Config yaml file. GCS path or yaml text itself.",
+    "is_optional": true
+  },
+  {
+    "name": "parallelNum",
+    "label": "Worker parallel num (Higher num, Earlier finish). default 1",
+    "help_text": "",
+    "is_optional": true
+  }]
+}
