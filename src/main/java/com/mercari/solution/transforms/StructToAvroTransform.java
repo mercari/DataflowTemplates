@@ -72,7 +72,7 @@ public class StructToAvroTransform extends PTransform<PCollection<Struct>, Write
 
             @Setup
             public void setup() {
-                this.keyFieldString = splitField.get();
+                this.keyFieldString = splitField == null ? null : splitField.get();
                 this.check = new HashSet<>();
             }
 
