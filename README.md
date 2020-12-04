@@ -1,4 +1,7 @@
 # Mercari Dataflow Templates
+
+([New version released!](https://github.com/mercari/DataflowTemplate))
+
 Useful Cloud Dataflow custom templates.
 
 You should use [Google provided templates](https://github.com/GoogleCloudPlatform/DataflowTemplates) if your use case fits.
