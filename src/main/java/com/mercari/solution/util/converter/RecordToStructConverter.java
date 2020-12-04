@@ -109,7 +109,7 @@ public class RecordToStructConverter {
             case LONG:
                 final Long longValue = (Long)value;
                 if(LogicalTypes.timestampMillis().equals(schema.getLogicalType())) {
-                    return builder.set(fieldName).to(isNullField ? null : convertMicrosecToTimestamp(longValue * 1000));
+                    return builder.set(fieldName).to(isNullField ? null : convertMicrosecToTimestamp(longValue));
                 } else if(LogicalTypes.timestampMicros().equals(schema.getLogicalType())) {
                     return builder.set(fieldName).to(isNullField ? null : convertMicrosecToTimestamp(longValue));
                 } else if(LogicalTypes.timeMicros().equals(schema.getLogicalType())) {
