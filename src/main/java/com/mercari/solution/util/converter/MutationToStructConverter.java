@@ -58,6 +58,9 @@ public class MutationToStructConverter {
                 case STRING:
                     builder = binder.to(value.isNull() ? null : value.getString());
                     break;
+                case NUMERIC:
+                    builder = binder.to(value.isNull() ? null : value.getNumeric());
+                    break;
                 case TIMESTAMP:
                     builder = binder.to(value.isNull() ? null : value.getTimestamp());
                     break;
@@ -83,6 +86,9 @@ public class MutationToStructConverter {
                             break;
                         case STRING:
                             builder = binder.toStringArray(value.isNull() ? null : value.getStringArray());
+                            break;
+                        case NUMERIC:
+                            builder = binder.toNumericArray(value.isNull() ? null : value.getNumericArray());
                             break;
                         case TIMESTAMP:
                             builder = binder.toTimestampArray(value.isNull() ? null : value.getTimestampArray());

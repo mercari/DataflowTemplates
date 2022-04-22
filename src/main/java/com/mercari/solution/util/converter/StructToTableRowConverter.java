@@ -74,6 +74,8 @@ public class StructToTableRowConverter {
         switch (type.getCode()) {
             case STRING:
                 return row.set(fieldName, struct.getString(fieldName));
+            case NUMERIC:
+                return row.set(fieldName, struct.getBigDecimal(fieldName));
             case BYTES:
                 return row.set(fieldName, struct.getBytes(fieldName));
             case BOOL:
@@ -108,6 +110,8 @@ public class StructToTableRowConverter {
         switch (type.getCode()) {
             case STRING:
                 return row.set(fieldName, struct.getStringList(fieldName));
+            case NUMERIC:
+                return row.set(fieldName, struct.getBigDecimalList(fieldName));
             case BYTES:
                 return row.set(fieldName, struct.getBytesList(fieldName));
             case BOOL:
@@ -145,6 +149,8 @@ public class StructToTableRowConverter {
         switch (type.getCode()) {
             case STRING:
                 return new TableFieldSchema().setName(fieldName).setType("STRING").setMode("NULLABLE");
+            case NUMERIC:
+                return new TableFieldSchema().setName(fieldName).setType("NUMERIC").setMode("NULLABLE");
             case BYTES:
                 return new TableFieldSchema().setName(fieldName).setType("BYTES").setMode("NULLABLE");
             case BOOL:

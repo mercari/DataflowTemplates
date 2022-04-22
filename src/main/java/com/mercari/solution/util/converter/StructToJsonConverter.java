@@ -49,6 +49,9 @@ public class StructToJsonConverter {
             case STRING:
                 obj.addProperty(fieldName, isNullField ? null : struct.getString(fieldName));
                 break;
+            case NUMERIC:
+                obj.addProperty(fieldName, isNullField ? null : struct.getBigDecimal(fieldName));
+                break;
             case BYTES:
                 obj.addProperty(fieldName, isNullField ? null : struct.getBytes(fieldName).toBase64());
                 break;
@@ -97,6 +100,10 @@ public class StructToJsonConverter {
                 break;
             case STRING:
                 struct.getStringList(field.getName()).stream().forEach(array::add);
+                obj.add(field.getName(), array);
+                break;
+            case NUMERIC:
+                struct.getBigDecimalList(field.getName()).stream().forEach(array::add);
                 obj.add(field.getName(), array);
                 break;
             case BYTES:
