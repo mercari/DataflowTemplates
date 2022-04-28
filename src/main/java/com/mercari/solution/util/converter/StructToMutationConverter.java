@@ -35,6 +35,9 @@ public class StructToMutationConverter {
                 case STRING:
                     builder = builder.set(fieldName).to(isNullField ? null : struct.getString(fieldName));
                     break;
+                case NUMERIC:
+                    builder = builder.set(fieldName).to(isNullField ? null : struct.getBigDecimal(fieldName));
+                    break;
                 case BYTES:
                     builder = builder.set(fieldName).to(isNullField ? null : struct.getBytes(fieldName));
                     break;
@@ -61,6 +64,9 @@ public class StructToMutationConverter {
                     switch (field.getType().getArrayElementType().getCode()) {
                         case STRING:
                             builder = builder.set(fieldName).toStringArray(isNullField ? null : struct.getStringList(fieldName));
+                            break;
+                        case NUMERIC:
+                            builder = builder.set(fieldName).toNumericArray(isNullField ? null : struct.getBigDecimalList(fieldName));
                             break;
                         case BYTES:
                             builder = builder.set(fieldName).toBytesArray(isNullField ? null : struct.getBytesList(fieldName));
@@ -112,6 +118,9 @@ public class StructToMutationConverter {
             switch(struct.getColumnType(keyField).getCode()) {
                 case STRING:
                     builder = builder.append(struct.getString(keyField));
+                    break;
+                case NUMERIC:
+                    builder = builder.append(struct.getBigDecimal(keyField));
                     break;
                 case BYTES:
                     builder = builder.append(struct.getBytes(keyField));
