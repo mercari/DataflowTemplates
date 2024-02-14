@@ -1,0 +1,61 @@
+{
+  "name": "BigQueryToSpannerDelete",
+  "description": "Pipeline to insert records to Spanner table from BigQuery query results.",
+  "parameters": [
+  {
+    "name": "query",
+    "label": "SQL Query text",
+    "help_text": "SQL Query text to read records from BigQuery."
+  },
+  {
+    "name": "projectId",
+    "label": "Output Spanner Project ID (Google Cloud Project ID)",
+    "help_text": "Project ID Cloud Spanner to store is belong to."
+  },
+  {
+    "name": "instanceId",
+    "label": "Output Spanner Instance ID",
+    "help_text": "Cloud Spanner instance ID to store."
+  },
+  {
+    "name": "databaseId",
+    "label": "Output Database ID",
+    "help_text": "Cloud Spanner database ID to store."
+  },
+  {
+    "name": "table",
+    "label": "Output Spanner Table Name",
+    "help_text": "Cloud Spanner target table name to store."
+  },
+  {
+    "name": "outputError",
+    "label": "GCS path to output error record as avro files.",
+    "help_text": "Path and filename prefix for writing output avro files. ex: gs://MyBucket/xxx",
+    "regexes": ["^gs:\/\/[^\n\r]+$"]
+  },
+  {
+    "name": "mutationOp",
+    "label": "Spanner insert policy. `INSERT` or `UPDATE` or `REPLACE` or `INSERT_OR_UPDATE`",
+    "help_text": "Detail: https://googleapis.github.io/google-cloud-java/google-cloud-clients/apidocs/com/google/cloud/spanner/Mutation.Op.html"
+  },
+  {
+    "name": "primaryKeyFields",
+    "label": "Key field on destination Spanner table. (Required table auto generation)",
+    "help_text": "If destination Spanner table not exists, template will create the table using this field as key.",
+    "is_optional": true
+  },
+  {
+    "name": "outputNotify",
+    "label": "OutputNotify",
+    "help_text": "GCS path to put notification file that contains output file paths.",
+    "regexes": ["^gs:\/\/[^\n\r]+$"],
+    "is_optional": true
+  },
+  {
+    "name": "splitField",
+    "label": "SplitField",
+    "help_text": "Field name to split output destination by the value",
+    "is_optional": true
+  }
+  ]
+}
