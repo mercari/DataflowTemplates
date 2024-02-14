@@ -18,20 +18,20 @@ LICENSE file in the root directory of this source tree.
   <packaging>jar</packaging>
 
   <properties>
-    <beam.version>2.34.0</beam.version>
+    <beam.version>2.53.0</beam.version>
     <hamcrest.version>1.3</hamcrest.version>
     <joda.version>2.4</joda.version>
     <junit.version>4.13.1</junit.version>
     <commons-csv.version>1.9.0</commons-csv.version>
-    <googlecloud.bigquery.version>2.5.1</googlecloud.bigquery.version>
-    <googlecloud.storage.version>2.2.2</googlecloud.storage.version>
+    <googlecloud.bigquery.version>2.37.1</googlecloud.bigquery.version>
+    <googlecloud.storage.version>2.32.0</googlecloud.storage.version>
     <googlecloud.kms.version>2.3.0</googlecloud.kms.version>
-    <googleapi.version>1.32.2</googleapi.version>
+    <googleapi.version>2.3.0</googleapi.version>
     <mockito.version>1.10.19</mockito.version>
     <slf4j.version>1.7.25</slf4j.version>
     <snakeyaml.version>1.30</snakeyaml.version>
     <tensorflow.version>1.13.1</tensorflow.version>
-    <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
+    <maven-compiler-plugin.version>3.12.1</maven-compiler-plugin.version>
     <maven-exec-plugin.version>1.6.0</maven-exec-plugin.version>
     <maven-jar-plugin.version>3.0.2</maven-jar-plugin.version>
     <maven-shade-plugin.version>3.1.0</maven-shade-plugin.version>
